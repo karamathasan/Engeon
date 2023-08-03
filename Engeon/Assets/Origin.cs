@@ -11,7 +11,11 @@ public class Origin : MonoBehaviour
     public Camera camera;
 
     public GameObject gridX;
+    private List<GameObject> gridXlines;
+
     public GameObject gridY;
+    private List<GameObject> gridYlines;
+
     public float tickDistance = 2;
     
     void Start()
@@ -126,6 +130,7 @@ public class Origin : MonoBehaviour
             gridLineClone.GetComponent<LineRenderer>().SetWidth(0.02f, 0.02f);
             gridLineClone.GetComponent<LineRenderer>().SetPosition(0, shift + Vertical());
             gridLineClone.GetComponent<LineRenderer>().SetPosition(1, shift - Vertical());
+            gridXlines.Add(gridLineClone);
         }
     }
 
@@ -141,6 +146,7 @@ public class Origin : MonoBehaviour
             gridLineClone.GetComponent<LineRenderer>().SetWidth(0.02f, 0.02f);
             gridLineClone.GetComponent<LineRenderer>().SetPosition(0, shift + Horizon());
             gridLineClone.GetComponent<LineRenderer>().SetPosition(1, shift - Horizon());
+            gridYlines.Add(gridLineClone);
         }
     }
 }
